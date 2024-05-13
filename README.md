@@ -1,3 +1,3 @@
 Braedon Banta
 
-UNCW Computer Science Major
+UNCW Computer Science '24

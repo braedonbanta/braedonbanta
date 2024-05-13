@@ -1,0 +1,4 @@
+Username: jay@text.com
+Password: password
+
+If it says Log-In invalid, wait five seconds and then retry with the same user and password

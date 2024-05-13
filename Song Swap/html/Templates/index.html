@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Garrick Smendziuk -->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Song Swap</title>
+    <meta name="keywords" content="Spotify, Song Swap, recommendations">
+    <meta name="description" content="Song recommendation website">
+    <script>
+    function openPopupWindow() {
+        window.open('/popup_window', 'PopupWindow', 'width=600,height=400');
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        Song Swap
+    </header>
+<div class="navbar">
+    </div>
+    <main>
+        <nav>
+            <ul>
+                <li><a href="/home" class="current">Home</a></li>
+                 <li><a href="/playlist_selector">Select a playlist</a></li>
+                <li><a href="/send_song_screen">Send a song</a></li>
+                <li><a href="/feed">Feed</a></li> <!-- Replace "#" with the appropriate Flask route -->
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h1>About us:</h1>
+            <p>Welcome to Song Swap! This website will match you up with another random person and get you a song recommendation from a real person. All you have to do is give us a song you like and we will do the rest!</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Garrick inc</p>
+    </footer>
+</body>

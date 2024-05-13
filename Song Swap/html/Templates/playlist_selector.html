@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Garrick Smendziuk -->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Song Swap</title>
+    <meta name="keywords" content="Spotify, Song Swap, recommendations">
+    <meta name="description" content="Song recommendation website">
+    <script>
+    function openPopupWindow() {
+        window.open('/popup_window', 'PopupWindow', 'width=600,height=400');
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        Song Swap
+    </header>
+<div class="navbar">
+    </div>
+    <main>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/playlist_selector" class="current">Select a playlist</a></li>
+                <li><a href="/send_song_screen">Send a song</a></li>
+                <li><a href="/feed">Feed</a></li> <!-- Replace "#" with the appropriate Flask route -->
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <section>
+           <h1>Select a playlist to send songs from</h1>
+    <form action="/playlist_selector_post" method="POST"><!-- Specify the action attribute -->
+        <label for="playlist">Choose a playlist:</label>
+        <select name="playlist" id="playlist">
+            {% for playlist in playlists %}
+                <option value="{{ playlist }}">{{ playlist }} </option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" value="Choose">
+    </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Garrick inc</p>
+    </footer>
+</body>

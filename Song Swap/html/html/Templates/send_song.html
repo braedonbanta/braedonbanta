@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- Garrick Smendziuk -->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Song Swap</title>
+    <meta name="keywords" content="Spotify, Song Swap, recommendations">
+    <meta name="description" content="Song recommendation website">
+    <style>
+    .song-table,
+    .user-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .song-table td,
+    .user-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .song-table th,
+    .user-table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+    }
+</style>
+    <script>
+    function openPopupWindow() {
+        window.open('/listen_song', 'PopupWindow', 'width=600,height=400');
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        Song Swap
+    </header>
+
+    <div class="navbar">
+    </div>
+
+    <main>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                 <li><a href="/playlist_selector">Select a playlist</a></li>
+                <li><a href="/send_song_screen" class="current">Send a song</a></li>
+                <li><a href="/feed">Feed</a></li> <!-- Replace "#" with the appropriate Flask route -->
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h1>Send a Song</h1>
+            <p>Start by picking a user to send a song to. Next, select a song from your selected playlist and send it!</p>
+            {% if results %}
+                <form action="/submit_song" method="post">
+                    <table class="user-table">
+                        <tr>
+                            <th>MATCHES</th>
+                        </tr>
+                        {% for result in results %}
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" name="selected_user" value="{{ result }}" required>
+                                </label> {{ result }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <br>
+                    <table class="song-table">
+                        <tr>
+                            <th>Recommend a Song</th>
+                        </tr>
+                        {% for song, artist in songs %}
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" name="selected_song" value="{{ song }}" required>
+                                </label> {{ song }} by {{ artist }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            {% else %}
+                <p>No matches found yet.</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

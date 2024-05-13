@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Garrick Smendziuk -->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Song Swap</title>
+    <meta name="keywords" content="Spotify, Song Swap, recommendations">
+    <meta name="description" content="Song recommendation website">
+    <style>
+        .song-table td,
+        .user-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .song-table th,
+        .user-table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script>
+        function openPopupWindow() {
+            // Get the selected song ID
+            var selectedSong = document.querySelector('input[name="selected_sent_song"]:checked').value;
+            // Open the popup window and pass the selected song ID as a parameter
+            window.open('/listen_song?selected_song=' + selectedSong, 'PopupWindow', 'width=700,height=500');
+        }
+    </script>
+</head>
+
+<body>
+<header>
+    Song Swap
+</header>
+
+<main>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+             <li><a href="/playlist_selector">Select a playlist</a></li>
+            <li><a href="/send_song_screen">Send a song</a></li>
+            <li><a href="/feed" class="current">Feed</a></li> <!-- Replace "#" with the appropriate Flask route -->
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    {% if sent_songs %}
+    <h2>Songs Received</h2>
+    <form id="songForm" action="/submit_song" method="POST">
+        <ul>
+            {% for sender_username, song_id in sent_songs %}
+            <li>
+                <label>
+                    <input type="radio" name="selected_sent_song" value="{{ song_id }}">
+                    {{ song_id }} (sent to you by {{ sender_username }})
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+        <br>
+        <button type="button" onclick="openPopupWindow()">Listen</button>
+    </form>
+    {% endif %}
+    {% if not sent_songs %}
+    <p>No new recommendations.</p>
+    <h3>Please select a playlist to send songs from: <a href="/playlist_selector">Select Playlist</a></h3>
+    {% endif %}
+</main>
+<footer>
+    <p>2023 Garrick inc</p>
+</footer>
+</body>
+</html>

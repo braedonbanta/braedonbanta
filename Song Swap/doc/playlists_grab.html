@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module playlists_grab</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">playlists_grab</strong></td>
+<td class="extra"><a href="..">index</a><br><a href="file:c%3A%5Cusers%5Cwolf-%5Conedrive%5Cdocuments%5Cgithub%5Ccsc450-sp24-project-team-8%5Cplaylists_grab.py">c:\users\wolf-\onedrive\documents\github\csc450-sp24-project-team-8\playlists_grab.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="spotipy.html">spotipy</a><br>
+</td><td class="multicolumn"><a href="sqlite3.html">sqlite3</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-get_playlist_id"><strong>get_playlist_id</strong></a>(playlist_name)</dt><dd><span class="code">Retrieves&nbsp;the&nbsp;ID&nbsp;of&nbsp;a&nbsp;playlist&nbsp;given&nbsp;its&nbsp;name.<br>
+&nbsp;<br>
+:param&nbsp;playlist_name&nbsp;(str):&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;playlist&nbsp;to&nbsp;search&nbsp;for.<br>
+&nbsp;<br>
+:return:&nbsp;str&nbsp;or&nbsp;None:&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;playlist&nbsp;if&nbsp;found,&nbsp;None&nbsp;otherwise.</span></dd></dl>
+ <dl><dt><a name="-get_playlists"><strong>get_playlists</strong></a>()</dt><dd><span class="code">Retrieves&nbsp;a&nbsp;list&nbsp;of&nbsp;playlist&nbsp;names&nbsp;belonging&nbsp;to&nbsp;the&nbsp;current&nbsp;user.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;A&nbsp;list&nbsp;of&nbsp;playlist&nbsp;names.</span></dd></dl>
+ <dl><dt><a name="-get_songs"><strong>get_songs</strong></a>(playlist_id)</dt><dd><span class="code">Retrieves&nbsp;the&nbsp;songs&nbsp;in&nbsp;a&nbsp;playlist&nbsp;given&nbsp;its&nbsp;ID.<br>
+&nbsp;<br>
+:param&nbsp;playlist_id&nbsp;(str):&nbsp;The&nbsp;ID&nbsp;of&nbsp;the&nbsp;playlist.<br>
+&nbsp;<br>
+:return:&nbsp;list:&nbsp;A&nbsp;list&nbsp;of&nbsp;dictionaries,&nbsp;each&nbsp;containing&nbsp;information&nbsp;about&nbsp;a&nbsp;song.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>client_id</strong> = 'de8dfa5743864623807a250061e269e0'<br>
+<strong>client_secret</strong> = '5f3ce43f0e0b4ae6b9f7f4f33de920cd'<br>
+<strong>conn</strong> = &lt;sqlite3.Connection object&gt;<br>
+<strong>cur</strong> = &lt;sqlite3.Cursor object&gt;<br>
+<strong>redirect_uri</strong> = 'http://localhost:5000/callback'<br>
+<strong>scope</strong> = 'playlist-read-private'<br>
+<strong>sp</strong> = &lt;spotipy.client.Spotify object&gt;<br>
+<strong>sp_oath</strong> = &lt;spotipy.oauth2.SpotifyOAuth object&gt;</td></tr></table>
+</body></html>

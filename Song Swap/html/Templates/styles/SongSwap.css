@@ -1,0 +1,30 @@
+section {
+	width: 600px;
+}
+fieldset {
+    margin-bottom: .5em;
+    padding: .5em 6%;
+	border: 2px solid steelblue;
+}
+fieldset p {
+    font-size: 90%;
+}
+legend {
+    font-weight: bold;
+    font-size: 90%;
+    padding-bottom: .5em;
+}
+
+label, input, select {
+	font-size: 90%;
+}
+fieldset#first label {
+    float: left;
+    width: 15%;
+    text-align: right;
+}
+fieldset#first input, select {
+    width: 15em;
+    margin-left: 1%;
+    margin-bottom: .7em;
+}

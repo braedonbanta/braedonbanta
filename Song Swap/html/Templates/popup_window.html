@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like/Dislike Screen</title>
+    <style> 
+        body { /* Sets the style for the entire screen (background color black, text color purple */
+            background-color: #0d0d0d;
+            color: #d405ff;
+        }
+        h2 { /* h2 is the main title */
+            text-align: center;
+        }
+        h1 { /* h1 is the button to close the popup window */
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        h1 button {
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h3 img { /* H3 img is the thumbs_up image/button */
+            position: absolute;
+            right: 400px;
+            top: 375px;
+            width: 100px;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        h4 img { /* H4 img is the thumbs_down image/button */
+            position: absolute;
+            left: 400px;
+            top: 375px;
+            width: 110px;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        h9 {
+            position: absolute;
+            left: 35%;
+            top: 60%;
+            color: purple;
+            font-size: 18px;
+        }
+
+        h5 { /* H5 Drop down box for selecting the playlist that are already created */
+            position: Absolute;
+            left: 575px;
+            top: 140px;
+            border: 50px;
+            height: 30px;
+            /*padding: 0%;*/
+            /*width: 100%;*/
+            /*cursor: pointer;*/
+
+        }
+        h6 button{ /* Future confirmation button */
+            border: 1px solid black;
+            position: Absolute;
+            left: 675px;
+            top: 220px;
+            height: 30px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body onload="getPlaylist()"> <!-- This is where actual on-screen implementation is done -->
+    <h2 style="position: absolute; left: 270px;">{{ songname }}</h2>
+    <h1><button onclick="closePopup()">Close</button></h1>
+    <h3><img src="styles/Images/thumbs_up.png" alt="Thumbs up" onclick="upvote()"></h3>
+    <h4><img src="styles/Images/thumbs_down.png" alt="Thumbs down" onclick="downvote()"></h4>
+    <h9><span id="likeRatio"></span></h9>
+    <img style="position: absolute; width: 200px; height: 200px; left: 250px; top: 100px;" src="{{ images }}">
+    <img src="styles/Images/play_button.png" style="position:absolute; width: 50px; height: 50px;
+    left: 325px; top: 325px; cursor: pointer;" id="play" onclick="play()">
+    <a style="position: absolute; left: 600px; top: 100px;">{{ results }}</a>
+    <form method="POST">
+        <h5>
+            <label for="playlist">Choose a playlist:</label>
+        <select name="playlist" id="playlist">
+        {% for playlist in playlists %}
+            <option value="{{ playlist }}">{{ playlist }}</option>
+        {% endfor %}
+            </select>
+            <input type="submit" value="Submit">
+        </h5>
+    </form>
+
+
+    <script>
+        function closePopup() { <!-- Closes the popup window when the button is clicked -->
+            window.close();
+        }
+
+        function upvote() { <!-- Processes an upvote when the upvote image is clicked -->
+        fetch('/upvote', {
+            method: 'POST',
+            body: JSON.stringify({}), <!-- This section communicates with the flask/python backend -->
+            headers: {
+                'Contest-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                data.likeRatio = data.likeRatio + 0 // Gets rid of unassigned variable error message
+                document.querySelector('h4 img').style.display = 'none'; <!-- This line removes the downvote button after upvoting -->
+                document.getElementById('likeRatio').textContent = data.likeRatio.toFixed(2) + "% of Users also liked this song";
+                document.getElementById('likeRatio').style.color = 'green';
+            })
+        }
+
+        function downvote() { <!-- Everything in this function is nearly identical to the upvote function -->
+            fetch('/downvote', {
+                method: 'POST',
+                body: JSON.stringify({}),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('h3 img').style.display = 'none';
+                document.getElementById('likeRatio').textContent = data.likeRatio.toFixed(2) + "% of users liked this song";
+                document.getElementById('likeRatio').style.color = 'red';
+            })
+        }
+         function getPlaylist() {
+            fetch('/popup_submit', {
+            method: 'POST',
+            body: JSON.stringify({}), <!-- This section communicates with the flask/python backend -->
+            headers: {
+                'Contest-Type': 'application/json'
+        }}).then(response => response.json())
+            .then(data => {
+                testList = data.playlists;
+                htmlList = document.getElementById('play');
+                for (i = 0; i < testList.length; i++){
+                    let newItem = document.createElement("option");
+                    newItem.textContent = testList[i];
+                    newItem.value = testList[i];
+                    htmlList.appendChild(newItem);
+            }})
+        }
+        function play(){
+            fetch('/play_song', {
+            method: 'POST',
+            body: JSON.stringify({}), <!-- This section communicates with the flask/python backend -->
+            headers: {
+                'Contest-Type': 'application/json'
+        }}).then(response => response.json())
+            .then(data => {
+                play_song = document.getElementById('play');
+
+              })
+        }
+        function pause(){
+            fetch('/pause_song', {
+            method: 'POST',
+            body: JSON.stringify({}), <!-- This section communicates with the flask/python backend -->
+            headers: {
+                'Contest-Type': 'application/json'
+        }}).then(response => response.json())
+            .then(data => {
+                pause_song = document.getElementById('pause');
+
+              })
+        }
+    </script>
+</body>
+</html>

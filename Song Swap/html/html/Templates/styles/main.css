@@ -1,0 +1,65 @@
+/* Garrick Smendziuk */
+
+
+body{
+    font-family: "Century gothic", Arial, sans-serif;
+    max-width: 1200px;
+    width: 95%;
+    margin: 1em auto;
+    padding: 0;
+    border-width: 3px;
+    border-style: solid;
+    border-color: purple;
+    box-shadow: 0 1px 1px 1px black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+body header{
+    padding: .9375rem 2.5%;
+    border-width: 0px 0px 0px 0px;
+    text-align: center;
+    background-color: plum;
+    font-size: 1.8em;
+    text-indent: 3.75%;
+    margin: .3125rem .417%;
+    font-weight: bold;
+    font-style: italic;
+}
+
+body aside{
+    float: left;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav ul li a{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 5px 0px 5px 0px;
+}
+
+nav ul li a.current{
+    color: purple;
+}
+
+nav ul a:link, nav ul a:visited {
+    color: black;
+}
+
+nav ul a:hover, nav ul a:focus {
+    color: blue;
+}
+
+footer{
+    text-align: center;
+}

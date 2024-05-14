@@ -1,0 +1,32 @@
+/* #user_mutuals_thing {
+    padding-left: 0;
+}
+*/
+main {
+    display: grid;
+    grid-template-areas: 
+        "nav nav"
+        "h2 h2"
+        "table1 table2";
+}
+.menu {
+    grid-area: nav;
+}
+#user_mutuals_thing {
+    grid-area: h2;
+}
+#following_table {
+    grid-area: table1;
+}
+#followed_by_table {
+    grid-area: table2;
+    border-left: 1px solid #ddd;
+}
+#following_table, #followed_by_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    /*margin-right: 0;
+    margin-bottom: 20px;
+    border-spacing: 0;*/
+}

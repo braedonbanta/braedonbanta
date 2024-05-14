@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Playlist</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <main>
+        <section class="menu">
+            <h2>MENU</h2>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="users.html">USERS</a></li>
+                    <li><a href="playlists.html" class="current">PLAYLISTS</a></li>
+                    <li><a href="charts.html">CHARTS</a></li>
+                    <li><a href="songs.html">SONGS</a></li>
+                    <li><a href="artists.html">ARTISTS</a></li>
+                </ul>
+            </nav>
+        </section>
+        <h2>Create Playlist</h2>
+        <form method="POST" action="../php/create_playlist.php">
+            <label for="username">Enter Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="playlist_name">Enter Playlist Name:</label>
+            <input type="text" id="playlist_name" name="playlist_name" required>
+            <br>
+            <button type="submit">Create Playlist</button>
+        </form>
+    </main>
+</body>
+</html>

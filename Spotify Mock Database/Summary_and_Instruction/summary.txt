@@ -1,0 +1,14 @@
+455 Final Project - Instructions
+Gabe Vega, Thomas Bourget, Braedon Banta
+
+
+Instructions:
+
+To test and access all queries in our database / website implementation, select different areas or features from the nav menu and go through each hyperlink listed. 
+For example, clicking on USERS will show the features associated with that area, like DISPLAY ALL USERS, or FOLLOW ANOTHER USER. In order to make this process efficient, 
+the user should select the DISPLAY features in each category (if they are there) so that they can see the information needed to use the other queries. 
+An example of this would be for trying the DISPLAY SONGS FROM AN ARTIST in the ARTISTS area, the user would be best advised to use the DISPLAY ALL SONGS feature 
+in the SONGS area so they can see the artists that exist in the database (artists being a column that gets displayed).
+
+In general, this rule exists for all queries that would need ‘pre-existing’ knowledge: the information is all accessible from the front-end. No need to look in the 
+MySQL tables to use the front-end to its full extent.

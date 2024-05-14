@@ -1,0 +1,42 @@
+html {
+    background-color: #101415; 
+    color: #fcffff;
+    font-family: "Helvetica", "Arial", sans-serif;
+    height: 100%;
+}
+body {
+    margin: 0;
+    height: 100%;
+    padding-bottom: 100px;
+    position: relative;
+}
+header, .menu, section, .explanation {
+    padding-left: 5%;
+}
+a {
+    color: #fcffff;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: #950101;
+    text-decoration: underline;
+}
+a.current {
+    color: #950101;
+}
+footer {
+    background-color: #950101;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer h3 {
+    color: #fcffff;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 15px;
+}

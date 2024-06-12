@@ -1,0 +1,7 @@
+path: C:\Users\bbant\Desktop\Personal Programming Projects\ML Basketball Analysis\data
+train: images/Train
+val: images/Train
+
+names:
+  0: goal
+  1: basketball

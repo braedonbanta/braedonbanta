@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Round</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Normal Round</h1>
+        <form action="{{ url_for('select_category') }}" method="POST">
+            <label for="category">Select Category:</label>
+            <select name="category" id="category" required>
+                <option value="animals">Animals</option>
+                <option value="foods">Foods</option>
+                <option value="celebrities">Celebrities</option>
+                <option value="places">Places</option>
+                <option value="movies">Movies</option>
+                <option value="characters">Characters</option>
+                <option value="companies">Companies</option>
+                <option value="hobbies">Hobbies</option>
+                <option value="household items">Household Items</option>
+                <option value="vehicles">Vehicles</option>
+                <option value="types of clothing">Types of Clothing</option>
+                <option value="states">States</option>
+            </select>
+            <br><br>
+            <input type="hidden" name="num_players" value="{{ request.form['num_players'] }}">
+            <input type="hidden" name="num_imposters" value="{{ request.form['num_imposters'] }}">
+            <button type="submit">Start Round</button>
+        </form>
+    </div>
+</body>
+</html>

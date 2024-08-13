@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imposter Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Imposter Game</h1>
+        <form action="{{ url_for('select_game_mode') }}" method="post">
+            <label for="num_players">Number of Players:</label>
+            <select id="num_players" name="num_players">
+                {% for i in range(1, 9) %}
+                    <option value="{{ i }}" {% if i == default_players %}selected{% endif %}>{{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="num_imposters">Number of Imposters:</label>
+            <select id="num_imposters" name="num_imposters">
+                {% for i in range(0, 8) %}
+                    <option value="{{ i }}" {% if i == default_imposters %}selected{% endif %}>{{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Normal Round</button>
+            <button type="submit" formaction="{{ url_for('pick_a_word') }}">Pick a Word Round</button>
+        </form>
+    </div>
+</body>
+</html>

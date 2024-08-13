@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="{{ 'imposter' if role == 1 else '' }}">
+            Your Role: {{ 'Imposter' if role == 1 else 'Not Imposter' }}
+        </h1>
+        <p>Category: {{ category }}</p>
+        {% if role != 1 %}
+            <p>Word: {{ word }}</p>
+        {% endif %}
+
+        <button id="clear-button">Clear</button>
+        <button id="next-button" style="display: none;" onclick="location.href='{{ url_for('get_role') }}'">Next Person</button>
+    </div>
+
+    <script>
+        document.getElementById('clear-button').addEventListener('click', function() {
+            document.querySelector('.container').innerHTML = ''; // Clear the container content
+            setTimeout(function() {
+                document.querySelector('.container').innerHTML = '<button id="next-button" onclick="location.href=\'{{ url_for('get_role') }}\'">Next Person</button>';
+                document.getElementById('next-button').style.display = 'block';
+            }, 1000); // Delay to show the next button after 1 second
+        });
+    </script>
+</body>
+</html>

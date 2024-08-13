@@ -1,0 +1,71 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h1.imposter {
+    color: red;
+}
+
+h1.not-imposter {
+    color: green;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#clear-button {
+    background-color: #ff5252;
+    color: white;
+}
+
+#next-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+input, select {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: calc(100% - 42px);
+}
+
+h1, h2, h3 {
+    margin: 0 0 20px 0;
+}
+
+p {
+    margin: 10px 0;
+}

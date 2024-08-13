@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Word Round</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Pick a Word Round</h1>
+        <form action="{{ url_for('select_player_count') }}" method="POST">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+            <br><br>
+            <label for="word">Word:</label>
+            <input type="text" id="word" name="word" required>
+            <br><br>
+            <input type="hidden" name="num_players" value="{{ request.form['num_players'] }}">
+            <input type="hidden" name="num_imposters" value="{{ request.form['num_imposters'] }}">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
